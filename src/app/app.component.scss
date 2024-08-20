@@ -1,43 +1,40 @@
-// .links {
-//       display: flex;
-//       gap: 3rem;
-//       justify-content: center;
-//       margin-top: 20px;
-//       // list-style-type: none; /* Removes the dots */
-//       // padding: 0; /* Removes the default padding */
-//       // margin: 0;
-//     }
-nav > ul > li > a{
-  
-    color: whitesmoke;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  z-index: 1000;
   }
-  nav{
-      background: green;
-      height: 30px;
+  .nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   }
-  
-      .nav-item:hover{
-          color: white;
-      }
-  
-  
-      .nav-list {
-          display: flex;
-          list-style-type: none;
-          justify-content: center;
-          padding: 0;
-          margin: 0;
-        }
-        
-        .nav-item {
-          margin-right: 20px;
-        }
-        
-        .nav-item a {
-          text-decoration: none;
-          color: #333;
-        }
-  
-      //   .nav-list:hover{
-      //     font-weight: bold;
-      //   }
+  .nav-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  word-spacing: 30px;
+  }
+  .nav-item {
+  margin-right: 20px;
+  }
+  .nav-item a {
+  color: #fff;
+  text-decoration: none;
+  }
+  .og-text {
+  font-size: 24px;
+  font-weight: bold;
+  }
+  .content {
+  margin-top: 80px;
+  padding: 20px;
+  }

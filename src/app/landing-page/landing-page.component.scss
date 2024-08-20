@@ -1,25 +1,45 @@
-.title {
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    background: whitesmoke;
+    padding-bottom: 30px;
+    border-radius: 15px;
+    margin-top: 0;
+  }
+  
+  .title {
     font-size: 30px;
-    margin-top: 10rem;
-    font-family: bold;
-    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .image-container {
+    margin-bottom: 20px;
+  }
+  
+  .app-image {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .image-text {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
   }
   
   .container {
-    display: grid;
-    place-items: center; /* Centers items both horizontally and vertically */
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
+    margin-top: 20px;
   }
   
   .button {
     padding: 10px 20px;
-    background-color: green;
+    background-color: #333;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 10px; /* Add horizontal margin to create space */
   }
