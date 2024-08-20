@@ -35,7 +35,7 @@ export class DashboardComponent {
   }
   constructor(private fb: FormBuilder, private itemservice: ItemService) {
     this.searchForm = this.fb.group({
-      search: 'car',
+      search: '',
     });
   }
 
