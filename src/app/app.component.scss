@@ -1,0 +1,43 @@
+// .links {
+//       display: flex;
+//       gap: 3rem;
+//       justify-content: center;
+//       margin-top: 20px;
+//       // list-style-type: none; /* Removes the dots */
+//       // padding: 0; /* Removes the default padding */
+//       // margin: 0;
+//     }
+nav > ul > li > a{
+  
+    color: whitesmoke;
+  }
+  nav{
+      background: green;
+      height: 30px;
+  }
+  
+      .nav-item:hover{
+          color: white;
+      }
+  
+  
+      .nav-list {
+          display: flex;
+          list-style-type: none;
+          justify-content: center;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .nav-item {
+          margin-right: 20px;
+        }
+        
+        .nav-item a {
+          text-decoration: none;
+          color: #333;
+        }
+  
+      //   .nav-list:hover{
+      //     font-weight: bold;
+      //   }

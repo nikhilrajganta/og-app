@@ -1,0 +1,27 @@
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header> </mat-card-header>
+  <img mat-card-image src="{{ item.banner_img }}" alt="Item Poster" />
+  <mat-card-content>
+    <div class="form-content">
+      <mat-card-title>{{ item.name }}</mat-card-title>
+
+      <button mat-raised-button (click)="openItemOverview()">
+        <mat-icon
+          ><span class="material-symbols-outlined"> info</span></mat-icon
+        >
+      </button>
+
+      <button mat-raised-button (click)="deleteItem()">
+        <mat-icon
+          ><span class="material-symbols-outlined"> delete</span></mat-icon
+        >
+      </button>
+
+      <button mat-raised-button [routerLink]="['/edit', item.id]">
+        <mat-icon
+          ><span class="material-symbols-outlined"> edit</span></mat-icon
+        >
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

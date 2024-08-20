@@ -1,0 +1,60 @@
+<form [formGroup]="itemForm" (ngSubmit)="editItem()" class="add-recipe-form">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" formControlName="name" />
+
+    @if(name?.touched && name?.hasError('required') ){
+    <mat-error>Name is <strong>required</strong></mat-error>
+    } @if(name?.touched && name?.hasError('minlength') ){
+    <mat-error>Please provide full recipe name 😁</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Banner</mat-label>
+    <input matInput placeholder="https://" formControlName="banner_img" />
+    @if(banner_img?.touched && banner_img?.hasError('required') ){
+    <mat-error>Image Url is <strong>required</strong></mat-error>
+    }@if(banner_img?.touched && banner_img?.hasError('pattern') ){
+    <mat-error>Pattern should start with https://</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Cover</mat-label>
+    <input matInput placeholder="Cover" formControlName="cover_img" />
+
+    @if(cover_img?.touched && cover_img?.hasError('required') ){
+    <mat-error>Image is <strong>required</strong></mat-error>
+    }@if(cover_img?.touched && cover_img?.hasError('pattern') ){
+    <mat-error>Pattern should start with https://</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Location</mat-label>
+    <input matInput placeholder="location" formControlName="location" />
+    @if(location?.touched && location?.hasError('required') ){
+    <mat-error>duration is <strong>required</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput placeholder="Details" formControlName="description" />
+    @if(description?.touched && description?.hasError('required') ){
+    <mat-error>Procedure is <strong>required</strong></mat-error>
+    }@if(description?.touched && description?.hasError('minlength') ){
+    <mat-error>Procedure should have atleast 20 characters</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Price</mat-label>
+    <input matInput type="number" placeholder="Price" formControlName="price" />
+    @if(price?.touched && price?.hasError('required') ){
+    <mat-error>ingrediants is <strong>required</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <button mat-raised-button type="submit">Add Recipe</button>
+</form>

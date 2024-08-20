@@ -1,0 +1,36 @@
+<body>
+  <div class="form">
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field [formGroup]="searchForm" class="example-full-width">
+            <mat-label>Search Item...</mat-label>
+            <input matInput placeholder="search..." formControlName="search" />
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  @if (filteredItems.length === 0) {
+  <div class="recipe-list-container">
+    @for (item of allitems; track $index) {
+    <app-itemcard
+      [item]="item"
+      (deleteItemEvent)="deleteItemP(item)"
+      [id]="item.id"
+    />
+    }
+  </div>
+  } @else {
+  <div class="recipe-list-container">
+    @for (item of filteredItems; track $index) {
+    <app-itemcard
+      [item]="item"
+      (deleteItemEvent)="deleteItemP(item)"
+      [id]="item.id"
+    ></app-itemcard>
+    }
+  </div>
+  }
+</body>

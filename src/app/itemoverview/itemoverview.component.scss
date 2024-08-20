@@ -1,0 +1,24 @@
+
+.recipe-overview{
+    display: flex;
+    // width: 1000px;
+    padding: 2rem;
+    max-width: 1000px;
+    gap: 2rem;
+    background-color: whitesmoke;
+}
+.recipe-overview img{
+    border-radius: 10%;
+    width: 100%;
+    height: 400px;
+}
+.meta{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+body{
+    display: flex;align-items: center;
+    justify-content: center;
+}

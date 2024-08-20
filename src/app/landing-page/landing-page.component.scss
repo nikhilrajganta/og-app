@@ -1,0 +1,25 @@
+.title {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10rem;
+    font-family: bold;
+    font-weight: 700;
+  }
+  
+  .container {
+    display: grid;
+    place-items: center; /* Centers items both horizontally and vertically */
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px; /* Add horizontal margin to create space */
+  }
