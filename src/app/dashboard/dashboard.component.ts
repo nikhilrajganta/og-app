@@ -10,7 +10,6 @@ import { startWith, debounceTime, switchMap, catchError, of } from 'rxjs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ItemcardComponent } from '../itemcard/itemcard.component';
-import { NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -36,7 +35,7 @@ export class DashboardComponent {
   }
   constructor(private fb: FormBuilder, private itemservice: ItemService) {
     this.searchForm = this.fb.group({
-      search: '',
+      search: 'car',
     });
   }
 

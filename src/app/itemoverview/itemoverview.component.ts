@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { item, ItemService } from '../item.service';
 import { ActivatedRoute } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-itemoverview',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './itemoverview.component.html',
   styleUrl: './itemoverview.component.scss',
 })

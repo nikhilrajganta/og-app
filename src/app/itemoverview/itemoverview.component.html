@@ -1,14 +1,24 @@
 <body>
   <div class="recipe-overview">
-    <img src="{{ item.banner_img }}" alt="{{ item.name }}" />
+    <img src="{{ item.cover_img }}" alt="{{ item.name }}" />
     <div class="content">
-      <h2>{{ item.name }}</h2>
-      <div class="meta">
-        <span class="duration">{{ item.price }}</span>
-        <span class="type">{{ item.location }}</span>
+      <div class="price-container">
+        <h2 class="item-price">{{ item.price | currency : "INR" }}</h2>
       </div>
-      <div class="procedure">
+      <h2 class="item-name">{{ item.name }}</h2>
+
+      <div class="meta">
+        <span class="posted-at"
+          >Posted at <span class="location">{{ item.location }}</span></span
+        >
+      </div>
+      <div class="description">
+        <h3>Description</h3>
         <p>{{ item.description }}</p>
+      </div>
+      <div class="button-container">
+        <button class="chat-button">Chat with Seller</button>
+        <button class="offer-button">Make an Offer</button>
       </div>
     </div>
   </div>

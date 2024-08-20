@@ -12,7 +12,9 @@
     </table>
   </div>
 
-  @if (filteredItems.length === 0) {
+  @if (allitems.length == 0) {
+  <h2>No Result found</h2>
+  } @if (filteredItems.length === 0) {
   <div class="recipe-list-container">
     @for (item of allitems; track $index) {
     <app-itemcard
