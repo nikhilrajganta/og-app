@@ -17,7 +17,8 @@
 
   @if(isLoading){
   <h1>Loading...</h1>
-  } @if (filteredItems.length === 0) {
+  }
+  <!-- @if (filteredItems.length === 0) { -->
   <div class="recipe-list-container">
     @for (item of allitems; track $index) {
     <app-itemcard
@@ -27,15 +28,15 @@
     />
     }
   </div>
-  } @else {
+  <!-- } @else {
   <div class="recipe-list-container">
-    @for (item of filteredItems; track $index) {
+    @for (item of allitems; track $index) {
     <app-itemcard
       [item]="item"
       (deleteItemEvent)="deleteItemP(item)"
       [id]="item.id"
     ></app-itemcard>
-    }
-  </div>
-  }
+    } -->
+  <!-- </div> -->
+  <!-- } -->
 </body>

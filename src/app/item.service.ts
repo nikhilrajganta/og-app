@@ -65,7 +65,7 @@ export class ItemService {
 
   search(searchTerm: string): Observable<item[]> {
     return this.http.get<item[]>(
-      `http://localhost:4000/items?search=${searchTerm}`
+      `https://669a42a59ba098ed61fef807.mockapi.io/movies?search=${searchTerm}`
     );
   }
 
