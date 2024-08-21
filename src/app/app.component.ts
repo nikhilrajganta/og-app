@@ -4,6 +4,7 @@ import { ItemcardComponent } from './itemcard/itemcard.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PnfComponent } from './pnf/pnf.component';
 import { ItemoverviewComponent } from './itemoverview/itemoverview.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -21,4 +22,7 @@ import { ItemoverviewComponent } from './itemoverview/itemoverview.component';
 })
 export class AppComponent {
   title = 'og-app';
+
+  constructor() {
+  }
 }

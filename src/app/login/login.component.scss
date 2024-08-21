@@ -31,19 +31,4 @@
       background-color: #555; /* Darker shade on hover */
     }
   }
-
-  .login-message {
-    margin-top: 20px; // Add some space above the message
-    font-size: 14px; // Adjust font size
-    text-align: right; // Align text to the right
-    color: #333; // Set text color
-  }
-
-  a {
-    color: #007bff; // Link color
-    text-decoration: none; // Remove underline
-    &:hover {
-      text-decoration: underline; // Underline on hover
-    }
-  }
 }

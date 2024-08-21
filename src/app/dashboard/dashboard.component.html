@@ -1,4 +1,7 @@
 <body>
+  <div>
+    <h1>{{ name ? "Welcome, " + name : "Login for better experience" }}</h1>
+  </div>
   <div class="form">
     <table class="example-full-width" cellspacing="0">
       <tr>
@@ -12,8 +15,8 @@
     </table>
   </div>
 
-  @if (allitems.length == 0) {
-  <h2>No Result found</h2>
+  @if(isLoading){
+  <h1>Loading...</h1>
   } @if (filteredItems.length === 0) {
   <div class="recipe-list-container">
     @for (item of allitems; track $index) {

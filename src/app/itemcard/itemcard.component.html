@@ -24,7 +24,7 @@
           >
           <p class="item-location">{{ item.location }}</p>
         </div>
-        <div class="button-container">
+        <div class="button-container" *ngIf="isLoggedIn">
           <button
             mat-raised-button
             color="accent"

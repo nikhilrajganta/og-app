@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export interface item {
   id: string;
@@ -42,7 +43,7 @@ export class ItemService {
     return await res.json();
   }
 
-  search(searchTerm: string) {
+  search(searchTerm: string): Observable<item[]> {
     return this.http.get<item[]>(
       `http://localhost:4000/items?search=${searchTerm}`
     );

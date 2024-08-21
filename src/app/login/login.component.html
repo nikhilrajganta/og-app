@@ -1,4 +1,4 @@
-<form [formGroup]="signUpForm" (ngSubmit)="signup()" class="add-movie-form">
+<form [formGroup]="loginForm" (ngSubmit)="login()" class="add-movie-form">
   <mat-form-field appearance="fill" class="form-field">
     <mat-label>Username</mat-label>
     <input matInput placeholder="Nikhil" formControlName="username" />
@@ -20,8 +20,5 @@
     />
   </mat-form-field>
 
-  <button mat-raised-button type="submit" class="submit-button">Signup</button>
-  <div class="login-message">
-    Already an existing user? <a routerLink="/user/login">Login here</a>
-  </div>
+  <button mat-raised-button type="submit" class="submit-button">Login</button>
 </form>

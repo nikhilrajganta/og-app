@@ -6,7 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-itemcard',
@@ -19,15 +19,25 @@ import { CurrencyPipe } from '@angular/common';
     MatIconModule,
     MatBadgeModule,
     CurrencyPipe,
+    CommonModule,
   ],
   templateUrl: './itemcard.component.html',
   styleUrl: './itemcard.component.scss',
 })
 export class ItemcardComponent {
-  constructor(public iteminfo: ItemService, private router: Router) {}
+  constructor(public iteminfo: ItemService, private router: Router) {
+    this.isLoggedIn = this.checkToken();
+  }
   @Input() id!: string;
 
   @Output() deleteItemEvent: EventEmitter<item> = new EventEmitter<item>();
+
+  isLoggedIn: boolean;
+
+  checkToken(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
 
   openItemOverview() {
     this.router.navigate(['/overview', this.item.id]);
