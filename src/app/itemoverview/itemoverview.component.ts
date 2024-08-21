@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { item, ItemService } from '../item.service';
 import { ActivatedRoute } from '@angular/router';
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-itemoverview',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, CommonModule],
   templateUrl: './itemoverview.component.html',
   styleUrl: './itemoverview.component.scss',
 })
 export class ItemoverviewComponent {
-  item!: item;
+  @Input() item!: item;
+  // item!: item;
   msg = '';
+  isLoading: boolean = true;
 
   constructor(
     private itemService: ItemService,
@@ -21,15 +23,17 @@ export class ItemoverviewComponent {
 
   // After Initialization of the component
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id') as string; // From URL
+    let id = this.route.snapshot.paramMap.get('id') as string;
 
     this.itemService
       .getItemById(id)
       .then((data) => {
-        this.item = data; // Model
+        this.item = data;
+        this.isLoading = false;
       })
       .catch(() => {
         this.msg = 'Something went wrong 🥲';
+        this.isLoading = false;
       });
   }
 }

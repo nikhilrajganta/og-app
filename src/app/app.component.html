@@ -6,16 +6,21 @@
       <li class="nav-item">
         <a routerLink="/items">Items</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="/add">AddItem</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/user/signup">Signup</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/user/login">Login</a>
-      </li>
+      <div class="button-container" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a routerLink="/add">Add Item</a>
+        </li>
+      </div>
     </ul>
+    <div class="auth-buttons">
+      @if(username){
+      <span class="username">Welcome, {{ username }}</span>
+      <a (click)="logout()" class="auth-button">Logout</a>
+      } @else {
+      <a routerLink="/user/signup" class="auth-button">Signup</a>
+      <a routerLink="/user/login" class="auth-button">Login</a>
+      }
+    </div>
   </div>
 </nav>
 

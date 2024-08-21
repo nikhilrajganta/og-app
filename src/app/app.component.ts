@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ItemcardComponent } from './itemcard/itemcard.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PnfComponent } from './pnf/pnf.component';
 import { ItemoverviewComponent } from './itemoverview/itemoverview.component';
 import { FormsModule } from '@angular/forms';
+import { ItemService } from './item.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -16,13 +18,33 @@ import { FormsModule } from '@angular/forms';
     PnfComponent,
     RouterLink,
     ItemoverviewComponent,
+    CommonModule,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'og-app';
+  username!: string | null;
+  isLoggedIn: boolean;
 
-  constructor() {
+  constructor(private router: Router, private itemService: ItemService) {
+    this.isLoggedIn = this.checkToken();
+  }
+
+  checkToken(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+
+  ngOnInit() {
+    this.itemService.username$.subscribe((username) => {
+      this.username = username;
+    });
+  }
+
+  logout() {
+    this.itemService.logout();
+    this.router.navigate(['/']);
   }
 }

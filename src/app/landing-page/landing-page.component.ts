@@ -18,4 +18,14 @@ import { SignupComponent } from '../signup/signup.component';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
 })
-export class LandingPageComponent {}
+export class LandingPageComponent {
+  name: string | null = null;
+
+  ngOnInit() {
+    this.checktokenusername();
+  }
+
+  checktokenusername() {
+    this.name = localStorage.getItem('username');
+  }
+}

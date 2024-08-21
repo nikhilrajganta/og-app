@@ -5,11 +5,11 @@
   <mat-card-content>
     <div class="form-content">
       <div class="price-container">
-        <h2 class="item-price">{{ item.price | currency : "INR" }}</h2>
+        <h1 class="item-price">{{ item.price | currency : "INR" }}</h1>
       </div>
       <div class="content-container">
         <div class="name-container">
-          <mat-card-title class="item-name">{{ item.name }}</mat-card-title>
+          <h3 class="item-name">{{ item.name }}</h3>
           <button mat-icon-button (click)="openItemOverview()">
             <mat-icon
               ><span class="material-symbols-outlined"> info</span></mat-icon

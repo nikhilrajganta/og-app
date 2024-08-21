@@ -16,10 +16,16 @@
   </div>
   <div class="container">
     <div>
-      <button class="button" routerLink="/signup" style="margin-right: 20px">
+      <button
+        class="button"
+        routerLink="/user/signup"
+        style="margin-right: 20px"
+      >
         SignUp
       </button>
-      <button class="button" routerLink="/items">Continue as Guest</button>
+      <button class="button" routerLink="/items">
+        {{ name ? "Explore" : "Continue as Guest" }}
+      </button>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface item {
   id: string;
@@ -17,7 +17,27 @@ export type InewItem = Omit<item, 'id'>;
   providedIn: 'root',
 })
 export class ItemService {
-  constructor(private http: HttpClient) {}
+  private usernameSubject = new BehaviorSubject<string | null>(null);
+  username$ = this.usernameSubject.asObservable();
+
+  constructor(private http: HttpClient) {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      this.usernameSubject.next(storedUsername);
+    }
+  }
+
+  login(username: string, token: string) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('username', username);
+    this.usernameSubject.next(username); // Update the username
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    this.usernameSubject.next(null); // Clear the username
+  }
   getAllItems(): Promise<item[]> {
     return fetch('http://localhost:4000/items').then((res) => res.json());
   }

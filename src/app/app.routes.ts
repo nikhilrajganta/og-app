@@ -21,7 +21,7 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   { path: 'edit/:id', component: EditItemComponent, canActivate: [authGuard] },
-  { path: 'add', component: AddItemComponent },
+  { path: 'add', component: AddItemComponent, canActivate: [authGuard] },
   { path: 'user/signup', component: SignupComponent },
   { path: 'user/login', component: LoginComponent },
 
