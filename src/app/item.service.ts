@@ -40,15 +40,19 @@ export class ItemService {
     this.usernameSubject.next(null); // Clear the username
   }
   getAllItems(): Promise<item[]> {
-    return fetch('http://localhost:4000/items').then((res) => res.json());
+    return fetch('https://og-app-be.onrender.com/items').then((res) =>
+      res.json()
+    );
   }
 
   getItemById(id: string): Promise<item> {
-    return fetch(`http://localhost:4000/items/${id}`).then((res) => res.json());
+    return fetch(`https://og-app-be.onrender.com/items/${id}`).then((res) =>
+      res.json()
+    );
   }
 
   addItem(newItem: InewItem) {
-    return fetch(`http://localhost:4000/items`, {
+    return fetch(`https://og-app-be.onrender.com/items`, {
       method: 'POST',
       body: JSON.stringify(newItem),
       headers: {
@@ -58,9 +62,12 @@ export class ItemService {
   }
 
   async deleteItem(items: item) {
-    const res = await fetch(`http://localhost:4000/items/${items.id}`, {
-      method: 'DELETE',
-    });
+    const res = await fetch(
+      `https://og-app-be.onrender.com/items/${items.id}`,
+      {
+        method: 'DELETE',
+      }
+    );
     return await res.json();
   }
 
@@ -71,7 +78,7 @@ export class ItemService {
   }
 
   editItem(editItem: item) {
-    return fetch(`http://localhost:4000/items/${editItem.id}`, {
+    return fetch(`https://og-app-be.onrender.com/items${editItem.id}`, {
       method: 'PUT',
       body: JSON.stringify(editItem),
       headers: {
