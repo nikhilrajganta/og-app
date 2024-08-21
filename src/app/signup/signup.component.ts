@@ -41,7 +41,7 @@ export class SignupComponent {
     if (this.signUpForm.valid) {
       // console.log(this.signUpForm.value);
       this.signupService.signup(this.signUpForm.value);
-      this.router.navigate(['/items']);
+      this.router.navigate(['/user/login']);
     }
   }
 

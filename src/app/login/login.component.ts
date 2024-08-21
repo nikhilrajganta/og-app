@@ -43,7 +43,8 @@ export class LoginComponent {
         this.loginService.login(this.loginForm.value).then((data) => {
           localStorage.setItem('token', data.token);
           // localStorage.setItem('roleId', data.roleId);
-          localStorage.setItem('username', this.loginForm.value.username);
+          localStorage.setItem('username', data.username);
+          localStorage.setItem('roleId', data.roleId);
           this.router.navigate(['/items']);
         });
       } catch (err) {
