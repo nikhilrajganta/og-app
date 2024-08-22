@@ -3,24 +3,24 @@
     <h1>{{ name ? "Welcome, " + name : "Login for better experience" }}</h1>
   </div>
   <div class="form">
-    <table class="example-full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field [formGroup]="searchForm" class="example-full-width">
-            <mat-label>Search Item...</mat-label>
-            <input matInput placeholder="search..." formControlName="search" />
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
+    <form class="example-full-width">
+      <mat-form-field [formGroup]="searchForm" class="example-full-width">
+        <mat-label>Search Item...</mat-label>
+        <input
+          matInput
+          type="search"
+          placeholder="search..."
+          formControlName="search"
+        />
+      </mat-form-field>
+    </form>
   </div>
 
   @if(isLoading){
   <h1>Loading...</h1>
   }
-  <!-- @if (filteredItems.length === 0) { -->
   <div class="recipe-list-container">
-    @for (item of allitems; track $index) {
+    @for (item of filteredItems; track $index) {
     <app-itemcard
       [item]="item"
       (deleteItemEvent)="deleteItemP(item)"
@@ -28,15 +28,4 @@
     />
     }
   </div>
-  <!-- } @else {
-  <div class="recipe-list-container">
-    @for (item of allitems; track $index) {
-    <app-itemcard
-      [item]="item"
-      (deleteItemEvent)="deleteItemP(item)"
-      [id]="item.id"
-    ></app-itemcard>
-    } -->
-  <!-- </div> -->
-  <!-- } -->
 </body>

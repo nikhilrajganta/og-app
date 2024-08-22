@@ -46,17 +46,16 @@ export class ItemcardComponent {
   deleteItem() {
     this.deleteItemEvent.emit(this.item);
   }
+
   canEditOrDelete(): boolean {
     const roleId = localStorage.getItem('roleId');
-    const username = localStorage.getItem('username')
-    if (roleId ) { // Parse the stored JSON
-      return roleId === '0' ||  (this.item.name === username) ; // Return true if roleId is '0'
+    const username = localStorage.getItem('username');
+    if (roleId) {
+      // Parse the stored JSON
+      return roleId === '0' || this.item.name === username; // Return true if roleId is '0'
     }
-    return false; // Default to false if no authData
+    return false;
   }
-
-
-
 
   @Input() item = {
     id: '',
@@ -68,6 +67,4 @@ export class ItemcardComponent {
     description:
       'A stylish and durable backpack perfect for school, work, or travel. Features multiple compartments and a comfortable padded back.',
   };
-
-
 }

@@ -6,10 +6,12 @@
       <li class="nav-item">
         <a routerLink="/items">Items</a>
       </li>
-      <div class="button-container" *ngIf="isLoggedIn">
+      <div class="button-container">
+        @if (isLoggedIn) {
         <li class="nav-item">
           <a routerLink="/add">Add Item</a>
         </li>
+        }
       </div>
     </ul>
     <div class="auth-buttons">

@@ -25,40 +25,43 @@
           <p class="item-location">{{ item.location }}</p>
         </div>
         <ng-container *ngIf="canEditOrDelete(); else noEditDelete">
-        <div class="button-container" *ngIf="isLoggedIn">
-          <div>
-            <button
-              mat-raised-button
-              color="accent"
-              (click)="deleteItem()"
-              class="delete-button"
-              style="color: #333"
-            >
-              <mat-icon
-                ><span class="material-symbols-outlined"> delete</span></mat-icon
+          <div class="button-container" *ngIf="isLoggedIn">
+            <div>
+              <button
+                mat-raised-button
+                color="accent"
+                (click)="deleteItem()"
+                class="delete-button"
+                style="color: #333"
               >
-            </button>
-          </div>
-          <div>
-            <button
-              mat-raised-button
-              color="accent"
-              [routerLink]="['/edit', item.id]"
-              class="edit-button"
-              style="color: #333"
-            >
-              <mat-icon
-                ><span class="material-symbols-outlined"> edit</span></mat-icon
+                <mat-icon
+                  ><span class="material-symbols-outlined">
+                    delete</span
+                  ></mat-icon
+                >
+              </button>
+            </div>
+            <div>
+              <button
+                mat-raised-button
+                color="accent"
+                [routerLink]="['/edit', item.id]"
+                class="edit-button"
+                style="color: #333"
               >
-            </button>
+                <mat-icon
+                  ><span class="material-symbols-outlined">
+                    edit</span
+                  ></mat-icon
+                >
+              </button>
+            </div>
           </div>
-        </div>
-      </ng-container>
-      <ng-template #noEditDelete>
-        <!-- Optionally, you can add a message or leave it empty -->
-      </ng-template>
+        </ng-container>
+        <ng-template #noEditDelete>
+          <!-- Optionally, you can add a message or leave it empty -->
+        </ng-template>
       </div>
-   
     </div>
   </mat-card-content>
 </mat-card>

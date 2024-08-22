@@ -6,12 +6,18 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { startWith, debounceTime, switchMap, catchError, of } from 'rxjs';
+import {
+  startWith,
+  debounceTime,
+  switchMap,
+  catchError,
+  of,
+  Observable,
+} from 'rxjs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ItemcardComponent } from '../itemcard/itemcard.component';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,31 +25,49 @@ import { HttpClient } from '@angular/common/http';
   imports: [
     ItemcardComponent,
     FormsModule,
-    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
     CommonModule,
   ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss',
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  allitems!: Array<item>;
+  allitems: Array<item> = [];
   filteredItems: Array<item> = [];
   searchForm!: FormGroup;
   isLoading: boolean = true;
   name: string | null = null;
 
-  updateFilteredItems(items: Array<item>) {
-    this.filteredItems = items;
-  }
   constructor(private fb: FormBuilder, private itemservice: ItemService) {
     this.searchForm = this.fb.group({
       search: '',
     });
   }
 
+  // ngOnInit() {
+  //   this.searchForm
+  //     .get('search')
+  //     ?.valueChanges.pipe(
+  //       startWith(''),
+  //       debounceTime(300),
+  //       switchMap((searchTerm) => {
+  //         return this.filterItems(searchTerm);
+  //       }),
+  //       catchError((err) => {
+  //         console.error(err);
+  //         return of([]);
+  //       })
+  //     )
+  //     .subscribe((filteredItems: item[]) => {
+  //       this.filteredItems = filteredItems;
+  //       console.log(filteredItems);
+  //     });
+
+  //   this.loadItems();
+  //   this.checktokenusername();
+  // }
   ngOnInit() {
     this.searchForm
       .get('search')
@@ -67,6 +91,20 @@ export class DashboardComponent {
     this.checktokenusername();
   }
 
+  // filterItems(searchTerm: string): Observable<item[]> {
+  //   if (searchTerm.trim() === '') {
+  //     return of(this.allitems);
+  //   } else {
+  //     const filtered = this.allitems.filter((item) =>
+  //       item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  //     );
+  //     return of(filtered);
+  //   }
+  // }
+  filterItems(searchTerm: string): Observable<item[]> {
+    return this.itemservice.search(searchTerm);
+  }
+
   checktokenusername() {
     this.name = localStorage.getItem('username');
   }
@@ -77,6 +115,7 @@ export class DashboardComponent {
       .getAllItems()
       .then((data) => {
         this.allitems = data;
+        this.filteredItems = data; // Initialize filteredItems with all items
         this.isLoading = false;
       })
       .catch((error) => {

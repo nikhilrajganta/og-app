@@ -6,7 +6,6 @@ import { PnfComponent } from './pnf/pnf.component';
 import { ItemoverviewComponent } from './itemoverview/itemoverview.component';
 import { FormsModule } from '@angular/forms';
 import { ItemService } from './item.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +17,6 @@ import { CommonModule } from '@angular/common';
     PnfComponent,
     RouterLink,
     ItemoverviewComponent,
-    CommonModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
