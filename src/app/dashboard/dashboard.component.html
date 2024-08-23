@@ -1,7 +1,9 @@
 <body>
   <div class="welcome-container">
-    <div class="welcome-message">Welcome,</div>
-    <div class="name">{{ name?.toUpperCase() }}</div>
+    <div class="welcome-message">
+      {{ name ? "Welcome, " : "Login for better experience" }}
+    </div>
+    <div class="name">{{ name | uppercase }}</div>
     <div class="emoji">👋</div>
   </div>
   <div class="form">

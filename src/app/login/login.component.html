@@ -29,4 +29,10 @@
   <div class="signup-message">
     New user? <a routerLink="/user/signup">Signup here</a>
   </div>
+
+  <div>
+    @if (errorMessage) {
+    <h3 class="error-message">{{ errorMessage }} ❌</h3>
+    }
+  </div>
 </form>

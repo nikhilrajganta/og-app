@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { LoginService } from '../login.service';
 import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -20,12 +21,15 @@ import { Router, RouterLink } from '@angular/router';
     MatFormFieldModule,
     MatInputModule,
     RouterLink,
+    CommonModule,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   loginForm!: FormGroup;
+  errorMessage: string = '';
+
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
@@ -37,20 +41,23 @@ export class LoginComponent {
     });
   }
 
-  login() {
-    // console.log(this.loginForm.value);
+  async login() {
     if (this.loginForm.valid) {
       try {
-        this.loginService.login(this.loginForm.value).then((data) => {
+        const data = await this.loginService.login(this.loginForm.value);
+
+        if (data.token) {
           localStorage.setItem('token', data.token);
-          // localStorage.setItem('roleId', data.roleId);
           localStorage.setItem('username', data.username);
           localStorage.setItem('roleId', data.roleId);
           this.loginService.loginSuccess = true;
           this.router.navigate(['/items']);
-        });
+        } else {
+          this.errorMessage = 'User does not exist';
+        }
       } catch (err) {
-        console.error({ msg: 'user not exist' });
+        this.errorMessage = 'User does not exist';
+        console.error({ msg: 'User not exist', err });
       }
     }
   }
