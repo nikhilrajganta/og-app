@@ -16,6 +16,7 @@ export interface TokenResponse {
   providedIn: 'root',
 })
 export class LoginService {
+  loginSuccess: boolean = false;
   constructor() {}
 
   async login(credentials: User): Promise<TokenResponse> {

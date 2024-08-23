@@ -7,7 +7,7 @@
         <a routerLink="/items">Items</a>
       </li>
       <div class="button-container">
-        @if (isLoggedIn) {
+        @if (loginService.loginSuccess || checkToken()) {
         <li class="nav-item">
           <a routerLink="/add">Add Item</a>
         </li>
@@ -15,8 +15,8 @@
       </div>
     </ul>
     <div class="auth-buttons">
-      @if(username){
-      <span class="username">Welcome, {{ username }}</span>
+      @if(loginService.loginSuccess || checkToken()){
+      <!-- <span>Welcome {{ username }}</span> -->
       <a (click)="logout()" class="auth-button">Logout</a>
       } @else {
       <a routerLink="/user/signup" class="auth-button">Signup</a>

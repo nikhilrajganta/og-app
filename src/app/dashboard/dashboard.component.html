@@ -6,18 +6,15 @@
     <form class="example-full-width">
       <mat-form-field [formGroup]="searchForm" class="example-full-width">
         <mat-label>Search Item...</mat-label>
-        <input
-          matInput
-          type="search"
-          placeholder="search..."
-          formControlName="search"
-        />
+        <input matInput placeholder="search..." formControlName="search" />
       </mat-form-field>
     </form>
   </div>
 
   @if(isLoading){
-  <h1>Loading...</h1>
+  <mat-spinner></mat-spinner>
+  } @else if(filteredItems.length == 0){
+  <h1>No Results Found</h1>
   }
   <div class="recipe-list-container">
     @for (item of filteredItems; track $index) {

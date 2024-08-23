@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ItemcardComponent } from '../itemcard/itemcard.component';
 import { CommonModule } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,13 +30,14 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     ReactiveFormsModule,
     CommonModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
   allitems: Array<item> = [];
-  filteredItems: Array<item> = [];
+  filteredItems: any = [];
   searchForm!: FormGroup;
   isLoading: boolean = true;
   name: string | null = null;
@@ -46,28 +48,6 @@ export class DashboardComponent {
     });
   }
 
-  // ngOnInit() {
-  //   this.searchForm
-  //     .get('search')
-  //     ?.valueChanges.pipe(
-  //       startWith(''),
-  //       debounceTime(300),
-  //       switchMap((searchTerm) => {
-  //         return this.filterItems(searchTerm);
-  //       }),
-  //       catchError((err) => {
-  //         console.error(err);
-  //         return of([]);
-  //       })
-  //     )
-  //     .subscribe((filteredItems: item[]) => {
-  //       this.filteredItems = filteredItems;
-  //       console.log(filteredItems);
-  //     });
-
-  //   this.loadItems();
-  //   this.checktokenusername();
-  // }
   ngOnInit() {
     this.searchForm
       .get('search')
@@ -86,23 +66,9 @@ export class DashboardComponent {
       .subscribe((data) => {
         console.log(data);
         this.filteredItems = data;
+        this.isLoading = false;
       });
-    this.loadItems();
     this.checktokenusername();
-  }
-
-  // filterItems(searchTerm: string): Observable<item[]> {
-  //   if (searchTerm.trim() === '') {
-  //     return of(this.allitems);
-  //   } else {
-  //     const filtered = this.allitems.filter((item) =>
-  //       item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  //     );
-  //     return of(filtered);
-  //   }
-  // }
-  filterItems(searchTerm: string): Observable<item[]> {
-    return this.itemservice.search(searchTerm);
   }
 
   checktokenusername() {
@@ -115,7 +81,7 @@ export class DashboardComponent {
       .getAllItems()
       .then((data) => {
         this.allitems = data;
-        this.filteredItems = data; // Initialize filteredItems with all items
+        this.filteredItems = data;
         this.isLoading = false;
       })
       .catch((error) => {

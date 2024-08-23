@@ -20,6 +20,16 @@ import { SignupComponent } from '../signup/signup.component';
 })
 export class LandingPageComponent {
   name: string | null = null;
+  isLoggedIn: boolean;
+
+  constructor() {
+    this.isLoggedIn = this.checkToken();
+  }
+
+  checkToken(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
 
   ngOnInit() {
     this.checktokenusername();

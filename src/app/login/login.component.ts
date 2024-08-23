@@ -45,6 +45,7 @@ export class LoginComponent {
           // localStorage.setItem('roleId', data.roleId);
           localStorage.setItem('username', data.username);
           localStorage.setItem('roleId', data.roleId);
+          this.loginService.loginSuccess = true;
           this.router.navigate(['/items']);
         });
       } catch (err) {

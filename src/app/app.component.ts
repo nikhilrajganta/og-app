@@ -6,6 +6,7 @@ import { PnfComponent } from './pnf/pnf.component';
 import { ItemoverviewComponent } from './itemoverview/itemoverview.component';
 import { FormsModule } from '@angular/forms';
 import { ItemService } from './item.service';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-root',
@@ -21,12 +22,16 @@ import { ItemService } from './item.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'og-app';
   username!: string | null;
   isLoggedIn: boolean;
 
-  constructor(private router: Router, private itemService: ItemService) {
+  constructor(
+    private router: Router,
+    private itemService: ItemService,
+    public loginService: LoginService
+  ) {
     this.isLoggedIn = this.checkToken();
   }
 
@@ -36,13 +41,15 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.itemService.username$.subscribe((username) => {
-      this.username = username;
-    });
+    // this.itemService.username$.subscribe((username) => {
+    //   this.username = username;
+    // });
+    this.isLoggedIn = this.checkToken();
   }
 
   logout() {
     this.itemService.logout();
+    this.loginService.loginSuccess = false;
     this.router.navigate(['/']);
   }
 }

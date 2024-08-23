@@ -66,6 +66,8 @@ export class ItemService {
   }
 
   search(searchTerm: string): Observable<item[]> {
+    // const searchTermLower = searchTerm.toLowerCase();
+    console.log(searchTerm);
     return this.http.get<item[]>(
       `http://localhost:4000/items?search=${searchTerm}`
     );

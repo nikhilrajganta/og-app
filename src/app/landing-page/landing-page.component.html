@@ -16,6 +16,14 @@
   </div>
   <div class="container">
     <div>
+      <!-- <button
+        class="button"
+        routerLink="/user/signup"
+        style="margin-right: 20px"
+      >
+        SignUp
+      </button> -->
+      @if (!isLoggedIn) {
       <button
         class="button"
         routerLink="/user/signup"
@@ -23,6 +31,7 @@
       >
         SignUp
       </button>
+      }
       <button class="button" routerLink="/items">
         {{ name ? "Explore" : "Continue as Guest" }}
       </button>
