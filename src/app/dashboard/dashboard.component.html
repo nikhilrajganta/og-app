@@ -3,8 +3,9 @@
     <div class="welcome-message">
       {{ name ? "Welcome, " : "Login for better experience" }}
     </div>
-    <div class="name">{{ name | uppercase }}</div>
-    <div class="emoji">👋</div>
+    <div class="name">
+      {{ name | uppercase }} <span class="emoji">{{ name ? "👋" : "" }}</span>
+    </div>
   </div>
   <div class="form">
     <form class="example-full-width">
