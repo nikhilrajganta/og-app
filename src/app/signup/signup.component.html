@@ -1,12 +1,14 @@
+<h3 class="signup-title">🎉 Create Your Account</h3>
+<p class="signup-description">Join us today and start your journey! 🚀</p>
+
 <form [formGroup]="signUpForm" (ngSubmit)="signup()" class="add-movie-form">
   <mat-form-field appearance="fill" class="form-field">
     <mat-label>Username</mat-label>
     <input matInput placeholder="Nikhil" formControlName="username" />
-
     @if(username?.touched && username?.hasError('required') ){
-    <mat-error>username is <strong>required</strong></mat-error>
+    <mat-error>Username is <strong>required</strong></mat-error>
     } @if(username?.touched && username?.hasError('minlength') ){
-    <mat-error>Password should be atleast 7 characters</mat-error>
+    <mat-error>Username should be at least 3 characters</mat-error>
     }
   </mat-form-field>
 

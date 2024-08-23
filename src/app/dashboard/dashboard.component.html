@@ -1,6 +1,8 @@
 <body>
-  <div>
-    <h1>{{ name ? "Welcome, " + name : "Login for better experience" }}</h1>
+  <div class="welcome-container">
+    <div class="welcome-message">Welcome,</div>
+    <div class="name">{{ name?.toUpperCase() }}</div>
+    <div class="emoji">👋</div>
   </div>
   <div class="form">
     <form class="example-full-width">

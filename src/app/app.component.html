@@ -6,13 +6,6 @@
       <li class="nav-item">
         <a routerLink="/items">Items</a>
       </li>
-      <div class="button-container">
-        @if (loginService.loginSuccess || checkToken()) {
-        <li class="nav-item">
-          <a routerLink="/add">Add Item</a>
-        </li>
-        }
-      </div>
     </ul>
     <div class="auth-buttons">
       @if(loginService.loginSuccess || checkToken()){
@@ -21,6 +14,11 @@
       } @else {
       <a routerLink="/user/signup" class="auth-button">Signup</a>
       <a routerLink="/user/login" class="auth-button">Login</a>
+      }
+    </div>
+    <div class="button-container">
+      @if (loginService.loginSuccess || checkToken()) {
+      <a class="sellItem" routerLink="/add">Sell Item</a>
       }
     </div>
   </div>

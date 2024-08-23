@@ -1,3 +1,8 @@
+<h3 class="login-title">🔑 Login to Your Account</h3>
+<p class="login-description">
+  Please enter your credentials to access your account. 🛡️
+</p>
+
 <form [formGroup]="loginForm" (ngSubmit)="login()" class="add-movie-form">
   <mat-form-field appearance="fill" class="form-field">
     <mat-label>Username</mat-label>
@@ -21,4 +26,7 @@
   </mat-form-field>
 
   <button mat-raised-button type="submit" class="submit-button">Login</button>
+  <div class="signup-message">
+    New user? <a routerLink="/user/signup">Signup here</a>
+  </div>
 </form>

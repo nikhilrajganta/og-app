@@ -56,6 +56,20 @@
   transition: background-color 0.3s;
   cursor: pointer;
 }
+.sellItem {
+  border: 2px solid white; 
+  border-radius: 25px; 
+  padding: 10px 20px; 
+  color: white; 
+  text-decoration: none;
+  margin-left: 20px;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.sellItem:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white; 
+}
 
 .auth-button:hover {
   background-color: #333;
