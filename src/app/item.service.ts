@@ -18,6 +18,8 @@ export type InewItem = Omit<item, 'id'>;
   providedIn: 'root',
 })
 export class ItemService {
+  API = 'https://og-app-be.onrender.com';
+
   private usernameSubject = new BehaviorSubject<string | null>(null);
   username$ = this.usernameSubject.asObservable();
 
@@ -41,15 +43,15 @@ export class ItemService {
     this.usernameSubject.next(null); // Clear the username
   }
   getAllItems(): Promise<item[]> {
-    return fetch('http://localhost:4000/items').then((res) => res.json());
+    return fetch(`${this.API}/items`).then((res) => res.json());
   }
 
   getItemById(id: string): Promise<item> {
-    return fetch(`http://localhost:4000/items/${id}`).then((res) => res.json());
+    return fetch(`${this.API}/items/${id}`).then((res) => res.json());
   }
 
   addItem(newItem: InewItem) {
-    return fetch(`http://localhost:4000/items`, {
+    return fetch(`${this.API}/items`, {
       method: 'POST',
       body: JSON.stringify(newItem),
       headers: {
@@ -59,7 +61,7 @@ export class ItemService {
   }
 
   async deleteItem(items: item) {
-    const res = await fetch(`http://localhost:4000/items/${items.id}`, {
+    const res = await fetch(`${this.API}/items/${items.id}`, {
       method: 'DELETE',
     });
     return await res.json();
@@ -68,9 +70,7 @@ export class ItemService {
   search(searchTerm: string): Observable<item[]> {
     // const searchTermLower = searchTerm.toLowerCase();
     console.log(searchTerm);
-    return this.http.get<item[]>(
-      `http://localhost:4000/items?search=${searchTerm}`
-    );
+    return this.http.get<item[]>(`${this.API}/items?search=${searchTerm}`);
   }
 
   // search(searchTerm: string): Observable<item[]> {
@@ -80,7 +80,7 @@ export class ItemService {
   // }
 
   editItem(editItem: item) {
-    return fetch(`http://localhost:4000/items/${editItem.id}`, {
+    return fetch(`${this.API}/items/${editItem.id}`, {
       method: 'PUT',
       body: JSON.stringify(editItem),
       headers: {
