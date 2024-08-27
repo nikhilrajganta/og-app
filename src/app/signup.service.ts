@@ -7,7 +7,7 @@ import { item } from './item.service';
 export class SignupService {
   constructor() {}
   async signup(credentials: item) {
-    return fetch('http://localhost:4000/user/signup', {
+    return fetch('https://friendly-cheesecake-77898e.netlify.app/user/signup', {
       method: 'POST',
       body: JSON.stringify(credentials),
       headers: {
