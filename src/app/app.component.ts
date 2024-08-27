@@ -52,4 +52,8 @@ export class AppComponent {
     this.loginService.loginSuccess = false;
     this.router.navigate(['/']);
   }
+
+  opengithub() {
+    window.open('https://github.com/nikhilrajganta/og-app', '_blank');
+  }
 }
