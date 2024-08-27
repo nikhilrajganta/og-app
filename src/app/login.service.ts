@@ -20,7 +20,7 @@ export class LoginService {
   constructor() {}
 
   async login(credentials: User): Promise<TokenResponse> {
-    return fetch('https://friendly-cheesecake-77898e.netlify.app/user/login', {
+    return fetch('https://og-app-be.onrender.com/user/login', {
       method: 'POST',
       body: JSON.stringify(credentials),
       headers: {
