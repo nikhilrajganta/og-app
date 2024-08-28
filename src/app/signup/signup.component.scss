@@ -63,3 +63,19 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.signup-message {
+  display: flex;                   
+  flex-direction: column;      
+  align-items: center;      
+  justify-content: center;
+  margin-top: 20px;             
+  padding: 10px;                  
+  // border: 1px solid #f44336;       
+  // background-color: #ffebee;
+  color: #d32f2f;          
+  border-radius: 5px;  
+  font-size: 1.2em;               
+  text-align: center
+}
+

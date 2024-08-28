@@ -26,9 +26,11 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class SignupComponent {
   signUpForm!: FormGroup;
+  errorMessage: string = '';
+
   constructor(
     private fb: FormBuilder,
-    private signupService: SignupService,
+    public signupService: SignupService,
     private router: Router
   ) {
     this.signUpForm = this.fb.group({
@@ -39,9 +41,12 @@ export class SignupComponent {
 
   signup() {
     if (this.signUpForm.valid) {
-      // console.log(this.signUpForm.value);
       this.signupService.signup(this.signUpForm.value);
-      this.router.navigate(['/user/login']);
+
+      if (!this.signupService.username) {
+      } else {
+        this.router.navigate(['/user/login']);
+      }
     }
   }
 

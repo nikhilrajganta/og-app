@@ -53,11 +53,11 @@ export class LoginComponent {
           this.loginService.loginSuccess = true;
           this.router.navigate(['/items']);
         } else {
-          this.errorMessage = 'User does not exist';
+          this.errorMessage = 'Invalid Credentail';
         }
       } catch (err) {
-        this.errorMessage = 'User does not exist';
-        console.error({ msg: 'User not exist', err });
+        this.errorMessage = 'Invalid Credentails';
+        // console.error({ msg: 'User not exist', err });
       }
     }
   }

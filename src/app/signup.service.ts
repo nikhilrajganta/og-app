@@ -5,6 +5,7 @@ import { item } from './item.service';
   providedIn: 'root',
 })
 export class SignupService {
+  username = '';
   constructor() {}
   async signup(credentials: item) {
     return fetch('https://og-app-be.onrender.com/user/signup', {
@@ -13,6 +14,10 @@ export class SignupService {
       headers: {
         'Content-type': 'application/json',
       },
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        this.username = data.msg;
+      });
   }
 }
