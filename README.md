@@ -1,27 +1,38 @@
-# OgApp
+# Oldie Goldie Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+## Description
 
-## Development server
+The Oldie Goldie application is a full-stack web application that utilizes Angular for the frontend, Node.js and Express for the backend, and DynamoDB for data storage. It allows users to perform CRUD operations on ItemsList data, including adding, updating, and deleting items, with real-time updates reflected in the user interface. Each item displayed features an image, location, and price, enhancing the user experience. The application includes user and admin access, where only administrators can delete and edit item details. Authentication is implemented to ensure secure access to the application.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **User Authentication**: Secure login and registration for users and administrators.
+- **CRUD Operations**: Add, update, and delete items with real-time updates.
+- **Admin Access**: Special permissions for administrators to manage item details.
+- **Dynamic Item Display**: Each item includes an image, location, and price.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Real-time Updates**: Immediate reflection of changes in the user interface.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies Used
 
-## Build
+- **Frontend**: Angular
+- **Backend**: Node.js, Express
+- **Database**: DynamoDB
+- **Authentication**: JSON Web Tokens (JWT)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## App Link
 
-## Running unit tests
+You can view the live application at the following link: [Oldie Goldie Live Demo](https://friendly-cheesecake-77898e.netlify.app/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Prerequisites
 
-## Running end-to-end tests
+- [Node.js](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli) (install globally using `npm install -g @angular/cli`)
+- [Git](https://git.com/) (for cloning the repository)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## How to Clone and Run the App
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- git clone https://github.com/nikhilraj/oldie-goldie.git.
+- Set the app locally.
+- Install the `npm` packages.[npm install]
+- Run the app with `ng serve`.
